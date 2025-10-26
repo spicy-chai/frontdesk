@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FrontDesk — Your Personal AI Receptionist</title>
+  <meta name="description" content="FrontDesk answers first, blocks spam, and only connects what matters—so you get your time back." />
+  <style>
+    :root{
+      --bg:#ffffff;            /* trust-forward white */
+      --ink:#111827;           /* slate-900 */
+      --muted:#4b5563;         /* slate-600 */
+      --soft:#6b7280;          /* slate-500 */
+      --border:#e5e7eb;        /* gray-200 */
+      --card:#f9fafb;          /* gray-50 */
+      --brand:#2563eb;         /* blue-600 */
+      --brand-dark:#1e40af;    /* blue-800 */
+      --ok:#16a34a;            /* green-600 */
+      --ring:0 0 0 4px rgba(37,99,235,.12);
+      --radius:16px;
+      --shadow:0 16px 40px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 80px}
+    /* Top nav */
+    .nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px;letter-spacing:.2px}
+    .logo-badge{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#60a5fa,#22d3ee)}
+    .logo-badge span{font-weight:900;color:#0b1020}
+    .nav-ctas{display:flex;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:12px 18px;font-weight:700;transition:transform .04s ease,box-shadow .2s ease}
+    .btn.primary{background:var(--brand);color:#fff;box-shadow:0 6px 18px rgba(37,99,235,.22)}
+    .btn.primary:hover{transform:translateY(-1px)}
+    .btn.ghost{border:1px solid var(--border);background:#fff;color:var(--ink)}
+    /* Hero */
+    .hero{display:grid;gap:22px;padding:22px 0 14px;border-bottom:1px solid var(--border)}
+    .kicker{font-weight:700;color:var(--brand-dark);letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+    h1{font-size:40px;line-height:1.15;margin:0;font-weight:900;letter-spacing:-.02em}
+    .sub{font-size:18px;color:var(--muted);max-width:760px}
+    .hero-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .email-input{flex:1;min-width:240px;display:flex;gap:10px}
+    .email-input input{flex:1;padding:14px 16px;border:1px solid var(--border);border-radius:12px;font-size:16px;outline:0}
+    .email-input input:focus{box-shadow:var(--ring);border-color:#bfdbfe}
+    .trust-row{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:8px;color:var(--soft);font-size:14px}
+    .trust-row .dot{width:6px;height:6px;border-radius:50%;background:#cbd5e1}
+    .mini-metric{display:flex;gap:8px;align-items:center;background:#eff6ff;color:#0b3b9c;border:1px solid #dbeafe;border-radius:999px;padding:6px 10px;font-weight:700}
+    /* Sections */
+    section{padding:34px 0}
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    @media (max-width:960px){.cards{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px 0;font-size:20px}
+    .card p{margin:0;color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 12px;border:1px solid #e2e8f0;background:#fff;font-weight:700}
+    .pill .num{font-variant-numeric:tabular-nums}
+    .list{margin:14px 0 0 0;padding:0 0 0 18px;color:var(--muted)}
+    /* Testimonials */
+    .t-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    @media (max-width:960px){.t-grid{grid-template-columns:1fr}}
+    .t-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .t-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+    .avatar{width:56px;height:56px;border-radius:50%;overflow:hidden;border:1px solid var(--border);background:#fff;flex:0 0 56px}
+    .who{display:flex;flex-direction:column}
+    .who .name{font-weight:800}
+    .who .role{color:var(--soft);font-size:14px}
+    .stars{color:#f59e0b;letter-spacing:2px;margin:2px 0 0}
+    .t-quote{font-size:18px;line-height:1.5;margin:8px 0 0}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .badge{background:#ecfdf5;border:1px solid #d1fae5;color:#065f46;border-radius:999px;padding:8px 12px;font-weight:800;font-size:14px}
+    /* Bottom CTA */
+    .cta{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;background:linear-gradient(180deg,#ffffff, #f8fafc);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+    .cta h2{margin:0;font-size:28px}
+    footer{margin-top:36px;color:var(--soft);font-size:14px;text-align:center}
+    /* Helpful helpers */
+    .sr{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
+    .mono{font-variant-numeric:tabular-nums}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- NAV -->
+    <nav class="nav" aria-label="Top">
+      <div class="logo">
+        <div class="logo-badge" aria-hidden="true"><span>FD</span></div>
+        FrontDesk
+      </div>
+      <div class="nav-ctas">
+        <a class="btn ghost" href="#how">See how it works</a>
+        <!-- Top join: direct link (no prefill) -->
+        <a class="btn primary" id="joinTop" href="https://docs.google.com/forms/d/e/1FAIpQLSdsrOygnFbjEdzPqGkjb-p7LBJNGZEqTJwkg7Aijp9xVg7ikg/viewform?usp=header" target="_blank" rel="noopener">Join Waitlist</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="kicker">Answer what matters</div>
+      <h1>AI receptionist that vets callers, blocks spam, and connects you only when it counts.</h1>
+      <p class="sub">FrontDesk answers first, screens every caller, and connects real people or tasks (like "book my doctor")—so you reclaim your day.</p>
+
+      <div class="hero-row">
+        <div class="email-input" role="group" aria-label="Join waitlist by email">
+          <label class="sr" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" inputmode="email" />
+          <a id="joinBottom" class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdsrOygnFbjEdzPqGkjb-p7LBJNGZEqTJwkg7Aijp9xVg7ikg/viewform?usp=header" target="_blank" rel="noopener">Join Waitlist</a>
+        </div>
+      </div>
+
+      <div class="trust-row" aria-label="Trust indicators">
+        <span class="mini-metric">–87% spam calls</span>
+        <span class="mini-metric">+2 hrs/day back</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>Private by default</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>Cancel anytime</span>
+      </div>
+    </header>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="cards">
+        <div class="card">
+          <h3>1) FrontDesk answers first</h3>
+          <p>Every call hits FrontDesk before your phone. The agent greets, triages, and filters instantly.</p>
+          <ul class="list">
+            <li>Blocks known spam &amp; spoofing</li>
+            <li>Understands intent in real time</li>
+          </ul>
+          <div style="margin-top:12px" class="pill"><span class="num mono">0.3s</span> pickup</div>
+        </div>
+        <div class="card">
+          <h3>2) Only the good ones get through</h3>
+          <p>Legit callers or important tasks connect to you (or your calendar) with context, not chaos.</p>
+          <ul class="list">
+            <li>Caller vetting &amp; callback options</li>
+            <li>Calendar / SMS follow-ups</li>
+          </ul>
+          <div style="margin-top:12px" class="pill"><span class="num mono">92%</span> fewer interruptions</div>
+        </div>
+        <div class="card">
+          <h3>3) Outbound that gets stuff done</h3>
+          <p>"Book my doctor," "Move my flight," "Get a quote." FrontDesk places calls and closes loops.</p>
+          <ul class="list">
+            <li>Skill-based dialing &amp; forms</li>
+            <li>Human escalation built-in</li>
+          </ul>
+          <div style="margin-top:12px" class="pill"><span class="num mono">48</span> mins saved/day</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section aria-labelledby="what-users-say">
+      <h2 id="what-users-say" style="margin:0 0 14px 0;font-size:28px">What users say</h2>
+      <div class="t-grid">
+
+        <!-- Testimonial 1 (Jordan) -->
+        <article class="t-card" aria-label="Jordan P testimonial">
+          <div class="t-head">
+            <div class="avatar">
+              <img alt="Headshot of Jordan (AI generated)" width="56" height="56"
+                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='112' height='112' viewBox='0 0 112 112'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%23a78bfa'/><stop offset='100%' stop-color='%230ea5e9'/></linearGradient></defs><rect width='112' height='112' rx='56' fill='url(%23g)'/><circle cx='56' cy='54' r='22' fill='%23fde68a'/><circle cx='48' cy='50' r='3' fill='%2322313f'/><circle cx='64' cy='50' r='3' fill='%2322313f'/><path d='M44 64 q12 10 24 0' stroke='%2322313f' stroke-width='4' fill='none' stroke-linecap='round'/><rect x='26' y='72' width='60' height='26' rx='13' fill='%23f1f5f9' stroke='%23e2e8f0'/></svg>" />
+            </div>
+            <div class="who">
+              <div class="name">Jordan P.</div>
+              <div class="role">Freelance Contractor</div>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="t-quote">"FrontDesk screens the junk and only lets real clients through. Miss fewer jobs; ignore the noise."</p>
+          <div class="badge-row">
+            <span class="badge">–87% spam</span>
+            <span class="badge">+2 hrs/day</span>
+          </div>
+        </article>
+
+        <!-- Testimonial 2 (Alex) -->
+        <article class="t-card" aria-label="Alex M testimonial">
+          <div class="t-head">
+            <div class="avatar">
+              <img alt="Headshot of Alex (AI generated)" width="56" height="56"
+                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='112' height='112' viewBox='0 0 112 112'><defs><linearGradient id='g2' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%23fda4af'/><stop offset='100%' stop-color='%23f97316'/></linearGradient></defs><rect width='112' height='112' rx='56' fill='url(%23g2)'/><circle cx='56' cy='54' r='22' fill='%23fee2e2'/><circle cx='48' cy='52' r='3' fill='%2322313f'/><circle cx='64' cy='52' r='3' fill='%2322313f'/><path d='M46 64 q10 8 20 0' stroke='%2322313f' stroke-width='4' fill='none' stroke-linecap='round'/><rect x='25' y='74' width='62' height='24' rx='12' fill='%23f8fafc' stroke='%23e2e8f0'/></svg>" />
+            </div>
+            <div class="who">
+              <div class="name">Alex M.</div>
+              <div class="role">Small Business Owner</div>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="t-quote">"It feels like a calm receptionist guards my phone. When it rings now, I know it matters."</p>
+          <div class="badge-row">
+            <span class="badge">Trust</span>
+            <span class="badge">Focus</span>
+          </div>
+        </article>
+
+        <!-- Testimonial 3 (Sam) -->
+        <article class="t-card" aria-label="Sam R testimonial">
+          <div class="t-head">
+            <div class="avatar">
+              <img alt="Headshot of Sam (AI generated)" width="56" height="56"
+                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='112' height='112' viewBox='0 0 112 112'><defs><linearGradient id='g3' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%2322c55e'/><stop offset='100%' stop-color='%2306b6d4'/></linearGradient></defs><rect width='112' height='112' rx='56' fill='url(%23g3)'/><circle cx='56' cy='54' r='22' fill='%23fde68a'/><circle cx='48' cy='51' r='3' fill='%2322313f'/><circle cx='64' cy='51' r='3' fill='%2322313f'/><path d='M44 65 q12 -6 24 0' stroke='%2322313f' stroke-width='4' fill='none' stroke-linecap='round'/><rect x='24' y='76' width='64' height='22' rx='11' fill='%23ffffff' stroke='%23e2e8f0'/></svg>" />
+            </div>
+            <div class="who">
+              <div class="name">Sam R.</div>
+              <div class="role">Operations Lead</div>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="t-quote">"We stopped sharing our cell numbers. FrontDesk answers first, vets callers, and connects only the good ones."</p>
+          <div class="badge-row">
+            <span class="badge">Fewer Interruptions</span>
+            <span class="badge">Happier Team</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section>
+      <div class="cta" aria-labelledby="cta">
+        <h2 id="cta">Protect your time. Let FrontDesk answer first.</h2>
+        <p class="sub" style="margin:0;max-width:720px">Join the waitlist—no spam, no fluff. We'll only contact you with meaningful updates.</p>
+        <div class="email-input" style="max-width:560px;width:100%">
+          <label class="sr" for="email2">Email</label>
+          <input id="email2" type="email" placeholder="you@company.com" inputmode="email"/>
+          <a id="joinBottom2" class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdsrOygnFbjEdzPqGkjb-p7LBJNGZEqTJwkg7Aijp9xVg7ikg/viewform?usp=header" target="_blank" rel="noopener">Join Waitlist</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> FrontDesk. All rights reserved.</footer>
+  </div>
+
+  <!-- Prefill logic: updates both bottom CTAs when email is typed -->
+  <script>
+    (function(){
+      const FURL = "https://docs.google.com/forms/d/e/1FAIpQLSdsrOygnFbjEdzPqGkjb-p7LBJNGZEqTJwkg7Aijp9xVg7ikg/viewform?usp=header";
+      const ENTRY = "entry.947872582"; // Email field id from your form
+      const i1 = document.getElementById("email");
+      const i2 = document.getElementById("email2");
+      const b1 = document.getElementById("joinBottom");
+      const b2 = document.getElementById("joinBottom2");
+      const set = (el, val) => el.setAttribute("href", FURL + "&" + ENTRY + "=" + encodeURIComponent(val));
+
+      function sync(){
+        const v = (i2.value || i1.value || "").trim();
+        if(v){
+          set(b1, v); set(b2, v);
+        }else{
+          b1.setAttribute("href", FURL);
+          b2.setAttribute("href", FURL);
+        }
+      }
+      ["input","change","blur"].forEach(e=>{
+        i1.addEventListener(e, sync);
+        i2.addEventListener(e, sync);
+      });
+      sync();
+      document.getElementById("y").textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
