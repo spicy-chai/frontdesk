@@ -55,8 +55,8 @@ section{padding:48px 0}
 @media (max-width:960px){.cards{grid-template-columns:1fr}}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);position:relative;transition:transform .2s ease,box-shadow .2s ease}
 .card:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(2,6,23,.12)}
-.card-number{position:absolute;top:24px;right:24px;font-size:48px;font-weight:900;color:#f1f5f9;line-height:1}
-.card-title{margin:0 0 12px 0;font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.card-number{position:absolute;top:20px;right:28px;font-size:56px;font-weight:900;color:#f1f5f9;line-height:1;user-select:none}
+.card-title{margin:0 0 12px 0;padding-right:80px;font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
 .card-description{margin:0 0 20px 0;color:var(--muted);line-height:1.6;font-size:15px}
 .feature-list{margin:0 0 24px 0;padding:0;list-style:none}
 .feature-list li{display:flex;align-items:flex-start;gap:10px;color:var(--soft);font-size:14px;margin-bottom:10px;line-height:1.5}
