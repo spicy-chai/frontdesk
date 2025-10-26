@@ -26,7 +26,7 @@ const KnowledgeGraph = () => {
       },
       flowchart: {
         curve: 'basis',
-        padding: 20,
+        padding: 10,
         nodeSpacing: 100,
         rankSpacing: 120,
       },
