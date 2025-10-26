@@ -74,6 +74,23 @@ a{color:inherit;text-decoration:none}
 .pain-stat{background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px}
 .pain-stat-value{font-size:36px;font-weight:900;color:#fff;margin-bottom:8px;font-variant-numeric:tabular-nums}
 .pain-stat-label{font-size:14px;color:#94a3b8;line-height:1.4}
+.phone-mockup-dark{background:rgba(30,41,59,.6);backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;margin-bottom:28px}
+.phone-header-dark{text-align:center;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.phone-status-dark{font-size:13px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.1em}
+.unknown-caller{text-align:center;padding:24px 0;margin-bottom:20px}
+.unknown-icon{width:80px;height:80px;border-radius:50%;background:rgba(239,68,68,.2);border:2px solid rgba(252,165,165,.3);display:flex;align-items:center;justify-content:center;color:#fca5a5;font-size:40px;font-weight:900;margin:0 auto 16px;animation:shake .5s infinite alternate}
+@keyframes shake{0%{transform:rotate(-3deg)}100%{transform:rotate(3deg)}}
+.unknown-number{font-size:24px;font-weight:900;color:#fff;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.unknown-label{font-size:16px;font-weight:700;color:#fca5a5;margin-bottom:4px}
+.unknown-subtitle{font-size:14px;color:#64748b}
+.phone-actions-dark{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.phone-btn{padding:14px;border-radius:10px;font-weight:700;font-size:15px;border:none;cursor:pointer;transition:all .2s ease}
+.decline-dark{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(252,165,165,.3)}
+.decline-dark:hover{background:rgba(239,68,68,.25)}
+.answer-dark{background:rgba(255,255,255,.1);color:#cbd5e1;border:1px solid rgba(255,255,255,.2)}
+.answer-dark:hover{background:rgba(255,255,255,.15)}
+.anxiety-indicator{background:rgba(239,68,68,.1);border:1px solid rgba(252,165,165,.2);border-radius:8px;padding:12px;text-align:center}
+.anxiety-text{font-size:14px;color:#fca5a5;font-weight:600}
 .solution-content{background:linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%);padding:64px 48px;display:flex;flex-direction:column}
 .solution-label{display:inline-block;background:#bfdbfe;color:#1e40af;padding:6px 12px;border-radius:6px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;width:fit-content}
 .solution-title{font-size:36px;font-weight:900;margin:0 0 16px 0;line-height:1.1;letter-spacing:-.02em;color:#0f172a}

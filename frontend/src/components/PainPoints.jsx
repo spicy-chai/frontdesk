@@ -12,6 +12,28 @@ const PainPoints = () => {
             That split-second decision—answer or ignore—happens dozens of times a day.
           </p>
 
+          <div className="phone-mockup-dark">
+            <div className="phone-header-dark">
+              <div className="phone-status-dark">Incoming Call</div>
+            </div>
+
+            <div className="unknown-caller">
+              <div className="unknown-icon">?</div>
+              <div className="unknown-number">(555) 123-4567</div>
+              <div className="unknown-label">Unknown Caller</div>
+              <div className="unknown-subtitle">No caller information available</div>
+            </div>
+
+            <div className="phone-actions-dark">
+              <button className="phone-btn decline-dark">Decline</button>
+              <button className="phone-btn answer-dark">Answer</button>
+            </div>
+
+            <div className="anxiety-indicator">
+              <div className="anxiety-text">❓ Client? Spam? Emergency?</div>
+            </div>
+          </div>
+
           <div className="pain-stats">
             <div className="pain-stat">
               <div className="pain-stat-value">87%</div>
