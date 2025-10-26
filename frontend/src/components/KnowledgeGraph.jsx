@@ -19,16 +19,16 @@ const KnowledgeGraph = () => {
         mainBkg: '#ffffff',
         secondBkg: '#f1f5f9',
         textColor: '#0f172a',
-        fontSize: '24px',
+        fontSize: '28px',
         nodeBorder: '#cbd5e1',
         clusterBkg: '#f8fafc',
         clusterBorder: '#e2e8f0',
       },
       flowchart: {
         curve: 'basis',
-        padding: 40,
-        nodeSpacing: 150,
-        rankSpacing: 180,
+        padding: 50,
+        nodeSpacing: 100,
+        rankSpacing: 120,
       },
     });
 
