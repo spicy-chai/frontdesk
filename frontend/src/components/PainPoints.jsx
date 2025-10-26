@@ -8,7 +8,7 @@ const PainPoints = () => {
             Every ring creates <span className="pain-highlight">anxiety</span>
           </h2>
           <p className="pain-description">
-            You glance at your phone. Unknown number. Your heart rate ticks up. Is it a client? A spam call? An important update?
+            Unknown caller. Your heart rate ticks up. Is it a client? Spam? An important update?
             That split-second decision—answer or ignore—happens dozens of times a day.
           </p>
 
@@ -25,36 +25,59 @@ const PainPoints = () => {
         </div>
 
         <div className="solution-content">
-          <div className="solution-label">The Solution</div>
+          <div className="solution-label">Your AI Receptionist</div>
           <h3 className="solution-title">
-            Answer every call with <span className="solution-highlight">confidence</span>
+            See exactly <span className="solution-highlight">who's calling and why</span>
           </h3>
           <p className="solution-description">
-            FrontDesk picks up instantly, screens the caller, and only connects genuine conversations.
-            No more anxiety. No more guessing. Just the calls that actually matter.
+            Our AI agent answers in 0.3 seconds, has a natural conversation to understand intent, and sends you a real-time summary before you pick up.
           </p>
 
-          <div className="solution-points">
-            <div className="solution-point">
-              <div className="solution-icon">🛡️</div>
-              <div className="solution-point-content">
-                <div className="solution-point-title">Instant Protection</div>
-                <div className="solution-point-text">Spam and robocalls blocked in 0.3 seconds</div>
+          <div className="interface-preview">
+            <div className="interface-header">
+              <div className="interface-time">Incoming Call</div>
+              <div className="interface-status">
+                <span className="status-dot"></span>
+                AI Vetting...
               </div>
             </div>
-            <div className="solution-point">
-              <div className="solution-icon">🎯</div>
-              <div className="solution-point-content">
-                <div className="solution-point-title">Smart Filtering</div>
-                <div className="solution-point-text">AI understands intent and context in real-time</div>
+
+            <div className="caller-info">
+              <div className="caller-avatar">JP</div>
+              <div className="caller-details">
+                <div className="caller-name">Jessica Park</div>
+                <div className="caller-number">(415) 555-0123</div>
               </div>
             </div>
-            <div className="solution-point">
-              <div className="solution-icon">✨</div>
-              <div className="solution-point-content">
-                <div className="solution-point-title">Peace of Mind</div>
-                <div className="solution-point-text">Never miss important calls, never waste time on spam</div>
+
+            <div className="ai-summary">
+              <div className="summary-badge">
+                <span className="summary-icon">🤖</span>
+                AI Summary
               </div>
+              <div className="summary-text">
+                "I'm calling about the project proposal I sent yesterday. I have some questions about the timeline and budget."
+              </div>
+              <div className="intent-tags">
+                <span className="intent-tag verified">✓ Verified Intent</span>
+                <span className="intent-tag priority">High Priority</span>
+              </div>
+            </div>
+
+            <div className="interface-actions">
+              <button className="action-btn accept">Accept Call</button>
+              <button className="action-btn decline">Send to Voicemail</button>
+            </div>
+          </div>
+
+          <div className="ai-features">
+            <div className="ai-feature">
+              <div className="ai-feature-icon">💬</div>
+              <div className="ai-feature-text">Conversational intelligence understands context and intent</div>
+            </div>
+            <div className="ai-feature">
+              <div className="ai-feature-icon">⚡</div>
+              <div className="ai-feature-text">Real-time vetting before the call reaches you</div>
             </div>
           </div>
         </div>
