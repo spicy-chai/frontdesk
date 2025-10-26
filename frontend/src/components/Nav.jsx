@@ -1,4 +1,16 @@
+import { useState } from 'react';
+
 const Nav = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="nav" aria-label="Top">
       <div className="logo">
@@ -7,8 +19,20 @@ const Nav = () => {
         </div>
         FrontDesk
       </div>
-      <div className="nav-ctas">
-        <a className="btn ghost" href="#how">
+
+      <button
+        className="hamburger"
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+        aria-expanded={isMenuOpen}
+      >
+        <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+        <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+        <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+      </button>
+
+      <div className={`nav-ctas ${isMenuOpen ? 'mobile-open' : ''}`}>
+        <a className="btn ghost" href="#how" onClick={closeMenu}>
           See how it works
         </a>
         <a
@@ -17,6 +41,7 @@ const Nav = () => {
           href="https://docs.google.com/forms/d/e/1FAIpQLSdsrOygnFbjEdzPqGkjb-p7LBJNGZEqTJwkg7Aijp9xVg7ikg/viewform?usp=header"
           target="_blank"
           rel="noopener"
+          onClick={closeMenu}
         >
           Join Waitlist
         </a>
