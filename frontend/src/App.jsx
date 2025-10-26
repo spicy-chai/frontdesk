@@ -1,5 +1,6 @@
 import Nav from './components/Nav';
 import Hero from './components/Hero';
+import PainPoints from './components/PainPoints';
 import Features from './components/Features';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
@@ -10,6 +11,7 @@ function App() {
     <div className="wrap">
       <Nav />
       <Hero />
+      <PainPoints />
       <Features />
       <Testimonials />
       <CTA />
