@@ -78,10 +78,12 @@ const Hero = () => {
 
   return (
     <header className="hero">
-      <div className="kicker">Answer what matters</div>
-      <h1>AI receptionist that vets callers, blocks spam, and connects you only when it counts.</h1>
-      <p className="sub">
-        FrontDesk answers first, screens every caller, and connects real people or tasks (like "book my doctor")—so you reclaim your day.
+      <div className="hero-badge">Answer what matters</div>
+      <h1 className="hero-title">
+        Your AI receptionist that <span className="highlight">filters the noise</span> and connects what matters
+      </h1>
+      <p className="hero-subtitle">
+        FrontDesk answers every call in 0.3 seconds, blocks spam instantly, and only connects real people or important tasks—so you can focus on what matters.
       </p>
 
       <div className="hero-row">
